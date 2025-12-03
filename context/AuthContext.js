@@ -4,17 +4,18 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userRole, setUserRole] = useState(null); // User role in the app (Jobseeker/Employer)
+  const [userRole, setUserRole] = useState(null); //Roles (Jobseeker/Employer)
   const [isVerified, setIsVerified] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [applications, setApplications] = useState([]); 
 
-  // 1. Jobs database
+  // JOBS DATABASE
   const [jobs, setJobs] = useState([
     { id: '1', title: 'Leaky Faucet Repair', category: 'Plumbing', pay: '₱500', postedBy: 'Walter Black', location: 'Zone 1', time: '5 mins ago', status: 'Open' },
     { id: '2', title: 'Tutor in Algebra', category: 'Tutoring', pay: '₱350/hr', postedBy: 'Walter Black', location: 'Zone 3', time: '1 hr ago', status: 'Open' },
   ]);
 
+  // NOTIFICATIONS DATABASE
   const [notifications, setNotifications] = useState([
     { id: '1', title: 'Welcome!', message: 'Welcome to QuicKita!', targetRole: 'Both', time: 'Just now' }
   ]);
