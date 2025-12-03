@@ -57,12 +57,12 @@ function TabNavigator() {
       
       <Tab.Screen name="Home" component={DashboardScreen} />
       
-      {/* Find Gigs is now only available for Workers */}
+      {/* Find Gigs that's only available for Workers */}
       {userRole === 'Worker' && (
         <Tab.Screen name="Find Gigs" component={FindJobsScreen} />
       )}
       
-      {/* Post Gig remains only available for Employers */}
+      {/* Post Gig that's only available for Employers */}
       {userRole === 'Employer' && (
         <Tab.Screen name="Post Gig" component={PostJobScreen} />
       )}
