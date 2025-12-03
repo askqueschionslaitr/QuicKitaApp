@@ -16,7 +16,8 @@ export default function DashboardScreen({ navigation }) {
       const jobDetails = jobs.find(j => j.id === app.jobId);
       return {
         ...app,
-        jobTitle: jobDetails ? jobDetails.title : 'Job Unavailable'
+        jobTitle: jobDetails ? jobDetails.title : 'Job Unavailable',
+        fullJobData: jobDetails
       };
     })
     .reverse(); 
@@ -49,7 +50,6 @@ export default function DashboardScreen({ navigation }) {
       <ScrollView style={styles.listContainer}>
         
         {userRole === 'Employer' ? (
-          // --- EMPLOYER VIEW ---
           myPostedJobs.length > 0 ? (
             myPostedJobs.map((job) => (
               <TouchableOpacity 
@@ -71,10 +71,17 @@ export default function DashboardScreen({ navigation }) {
             <Text style={styles.emptyText}>You haven't posted any jobs yet.</Text>
           )
         ) : (
-          // --- WORKER VIEW ---
           myRecentApps.length > 0 ? (
             myRecentApps.map((app) => (
-              <View key={app.id} style={styles.listItem}>
+              <TouchableOpacity 
+                key={app.id} 
+                style={styles.listItem}
+                onPress={() => {
+                  if (app.fullJobData) {
+                    navigation.navigate('JobDetails', { job: app.fullJobData });
+                  }
+                }}
+              >
                  <View style={[
                    styles.listIconBox, 
                    { backgroundColor: app.status === 'Accepted' ? '#D1FAE5' : '#FFF4E5' }
@@ -94,7 +101,8 @@ export default function DashboardScreen({ navigation }) {
                     Status: {app.status}
                   </Text>
                 </View>
-              </View>
+                <Ionicons name="chevron-forward" size={20} color="#ccc" />
+              </TouchableOpacity>
             ))
           ) : (
             <Text style={styles.emptyText}>You haven't applied to any jobs yet.</Text>
@@ -108,11 +116,13 @@ export default function DashboardScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#f0f4f7' },
+  
   alertBanner: {
     flexDirection: 'row', alignItems: 'center', backgroundColor: '#FFFBEA',
     padding: 15, marginBottom: 10,
   },
   alertText: { marginLeft: 10, color: '#FF9500', fontWeight: '600' },
+
   profileCard: {
     alignItems: 'center', backgroundColor: '#fff', padding: 25, margin: 15,
     borderRadius: 16, elevation: 3, shadowColor: '#000', shadowOpacity: 0.1, shadowRadius: 5
@@ -121,10 +131,12 @@ const styles = StyleSheet.create({
   userBarangay: { fontSize: 14, color: '#666', marginBottom: 10 },
   roleBadge: { backgroundColor: '#E0E7FF', paddingHorizontal: 12, paddingVertical: 4, borderRadius: 20 },
   roleText: { fontSize: 14, fontWeight: 'bold' },
+
   sectionHeader: {
     fontSize: 18, fontWeight: 'bold', paddingHorizontal: 20, marginBottom: 10, color: '#444'
   },
   listContainer: { flex: 1, paddingHorizontal: 15 },
+  
   listItem: {
     flexDirection: 'row', alignItems: 'center', backgroundColor: '#fff',
     padding: 15, borderRadius: 12, marginBottom: 10, elevation: 1
@@ -137,5 +149,6 @@ const styles = StyleSheet.create({
   listContent: { flex: 1 },
   listTitle: { fontSize: 16, fontWeight: 'bold', color: '#333' },
   listSub: { fontSize: 13, color: '#666', marginTop: 2 },
+  
   emptyText: { textAlign: 'center', marginTop: 20, color: '#999', fontStyle: 'italic' }
 });
