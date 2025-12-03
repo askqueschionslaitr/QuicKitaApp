@@ -7,17 +7,14 @@ export const AuthProvider = ({ children }) => {
   const [userRole, setUserRole] = useState(null); 
   const [isVerified, setIsVerified] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [applications, setApplications] = useState([]); 
 
-  // 1. JOBS DATABASE
+  // 1. Jobs database
   const [jobs, setJobs] = useState([
     { id: '1', title: 'Leaky Faucet Repair', category: 'Plumbing', pay: '₱500', postedBy: 'Walter Black', location: 'Zone 1', time: '5 mins ago', status: 'Open' },
     { id: '2', title: 'Tutor in Algebra', category: 'Tutoring', pay: '₱350/hr', postedBy: 'Walter Black', location: 'Zone 3', time: '1 hr ago', status: 'Open' },
   ]);
 
-  // 2. APPLICATIONS DATABASE
-  const [applications, setApplications] = useState([]); 
-
-  // 3. NOTIFICATIONS DATABASE
   const [notifications, setNotifications] = useState([
     { id: '1', title: 'Welcome!', message: 'Welcome to QuicKita!', targetRole: 'Both', time: 'Just now' }
   ]);
