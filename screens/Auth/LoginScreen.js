@@ -9,7 +9,6 @@ export default function LoginScreen() {
   const navigation = useNavigation();
   const [isWorker, setIsWorker] = useState(true);
 
-  // ✅ EXACT LOGO COLORS
   const PURPLE = '#535CE8';
   const GOLD = '#F2C94C';
 
@@ -23,7 +22,6 @@ export default function LoginScreen() {
         {/* BRANDING SECTION */}
         <View style={styles.header}>
           
-          {/* ✅ CHANGED: Now using the actual Image File */}
           <Image 
             source={require('../../assets/logo.png')} 
             style={styles.logoImage}
@@ -104,9 +102,8 @@ const styles = StyleSheet.create({
   
   header: { alignItems: 'center', marginBottom: 40 },
   
-  // ✅ NEW STYLE FOR IMAGE LOGO
   logoImage: {
-    width: 100, // Adjust size as needed
+    width: 100,
     height: 100,
     marginBottom: 5
   },

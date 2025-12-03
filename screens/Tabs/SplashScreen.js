@@ -5,7 +5,6 @@ export default function SplashScreen() {
   return (
     <View style={styles.container}>
       
-      {/* ✅ CHANGED: Image inside a White Circle so it's visible */}
       <View style={styles.whiteCircle}>
         <Image 
           source={require('../../assets/logo.png')} 
@@ -28,21 +27,20 @@ export default function SplashScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#535CE8', // Purple Background
+    backgroundColor: '#535CE8',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  // ✅ NEW: White background circle for the logo
   whiteCircle: {
     width: 120,
     height: 120,
     backgroundColor: 'white',
-    borderRadius: 60, // Makes it a perfect circle
+    borderRadius: 60,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
-    elevation: 5, // Shadow for Android
-    shadowColor: '#000', // Shadow for iOS
+    elevation: 5,
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
