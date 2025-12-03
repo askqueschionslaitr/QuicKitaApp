@@ -19,7 +19,7 @@ export default function LoginScreen() {
     >
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         
-        {/* BRANDING SECTION */}
+        {/* Branding section */}
         <View style={styles.header}>
           
           <Image 
@@ -36,7 +36,7 @@ export default function LoginScreen() {
           <Text style={styles.tagline}>Your Neighborhood Marketplace</Text>
         </View>
 
-        {/* ROLE TOGGLE */}
+        {/* Role Toggle */}
         <Text style={styles.label}>I am logging in as a:</Text>
         <View style={styles.toggleContainer}>
           <TouchableOpacity 
@@ -54,7 +54,7 @@ export default function LoginScreen() {
           </TouchableOpacity>
         </View>
 
-        {/* INPUTS */}
+        {/* Inputs */}
         <View style={styles.inputContainer}>
           <Ionicons name="mail-outline" size={20} color="#666" style={styles.inputIcon} />
           <TextInput 
@@ -75,7 +75,7 @@ export default function LoginScreen() {
           />
         </View>
 
-        {/* MAIN ACTION BUTTON */}
+        {/* Main Action */}
         <TouchableOpacity 
           style={[styles.loginBtn, { backgroundColor: PURPLE, shadowColor: PURPLE }]} 
           onPress={() => login(isWorker ? 'Worker' : 'Employer')}
@@ -83,7 +83,7 @@ export default function LoginScreen() {
           <Text style={styles.loginBtnText}>Log In</Text>
         </TouchableOpacity>
 
-        {/* SECONDARY ACTION */}
+        {/* Secondary Action */}
         <View style={styles.footer}>
           <Text style={styles.footerText}>New to QuicKita?</Text>
           <TouchableOpacity onPress={() => navigation.navigate('Signup')}>

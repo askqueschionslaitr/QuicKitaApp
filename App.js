@@ -26,7 +26,7 @@ import SplashScreen from "./screens/Tabs/SplashScreen";
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-// --- 1. Tab Navigator (Main App Interface) ---
+// Tab Navigator
 function TabNavigator() {
   const { userRole } = useAuth();
   
@@ -73,17 +73,17 @@ function TabNavigator() {
   );
 }
 
-// --- 2. Main Stack Navigator (Handles Nested Screens) ---
+// Main Stack Navigator (Handles Nested Screens)
 function AppStack() {
   return (
     <Stack.Navigator>
-      {/* 2a. Tabs Screen (Root of the authenticated flow) */}
+      {/* Tabs Screen */}
       <Stack.Screen 
         name="HomeTabs" 
         component={TabNavigator} 
         options={{ headerShown: false }} 
       />
-      {/* 2b. Stacked Screens (Details, Settings, etc.) */}
+      {/* Stacked Screens (Details, Settings, etc.) */}
       <Stack.Screen 
         name="JobDetails" 
         component={JobDetailsScreen} 
@@ -93,11 +93,11 @@ function AppStack() {
   );
 }
 
-// --- 3. Guarded Route Logic ---
+// Guarded Route Logic
 function RootNavigator() {
   const { isLoggedIn, isLoading } = useAuth(); 
 
-  // ✅ LOGIC: If loading, show Splash. If not, check Login status.
+  // If loading, show Splash. If not, check Login status.
   if (isLoading) {
     return <SplashScreen />;
   }
@@ -119,7 +119,7 @@ function RootNavigator() {
   );
 }
 
-// --- 4. App Entry Point with Context Provider ---
+// App Entry Point with Context Provider ---
 export default function App() {
   return (
     <AuthProvider>
