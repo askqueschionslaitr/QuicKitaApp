@@ -27,13 +27,13 @@ export default function PostJobScreen({ navigation }) {
   }
 
   const handlePost = () => {
-    // 1. Validation
+    // Validation
     if (!title || !pay) {
       alert('Please fill in the Job Title and Pay Amount.');
       return;
     }
 
-    // 2. Create the Job Object
+    // Create the Job Object
     const newJob = {
       id: Date.now().toString(),
       title: title,
@@ -44,10 +44,10 @@ export default function PostJobScreen({ navigation }) {
       time: 'Just Now'
     };
 
-    // 3. Update State
+    // Update State
     addJob(newJob);
 
-    // 4. Show Custom Center Popup
+    // Show Custom Center Popup
     setModalVisible(true);
   };
 
@@ -64,7 +64,7 @@ export default function PostJobScreen({ navigation }) {
         <Text style={styles.headerTitle}>Post a New Gig</Text>
         <Text style={styles.headerSubtitle}>Fill in the details to find a worker.</Text>
 
-        {/* JOB TITLE INPUT */}
+        {/* Job title input */}
         <View style={styles.inputGroup}>
           <Text style={styles.label}>Job Title</Text>
           <View style={styles.inputContainer}>
@@ -79,7 +79,7 @@ export default function PostJobScreen({ navigation }) {
           </View>
         </View>
 
-        {/* CATEGORY PICKER */}
+        {/* Category picker */}
         <View style={styles.inputGroup}>
           <Text style={styles.label}>Category</Text>
           <View style={styles.pickerContainer}>
@@ -95,7 +95,7 @@ export default function PostJobScreen({ navigation }) {
           </View>
         </View>
         
-        {/* PAY AMOUNT INPUT */}
+        {/* Pay amount input */}
         <View style={styles.inputGroup}>
           <Text style={styles.label}>Pay Amount (₱)</Text>
           <View style={styles.inputContainer}>
@@ -111,7 +111,7 @@ export default function PostJobScreen({ navigation }) {
           </View>
         </View>
 
-        {/* PAYMENT METHOD PICKER */}
+        {/* Payment method picker */}
         <View style={styles.inputGroup}>
           <Text style={styles.label}>Payment Method</Text>
           <View style={styles.pickerContainer}>
@@ -127,7 +127,7 @@ export default function PostJobScreen({ navigation }) {
           </View>
         </View>
 
-        {/* POST BUTTON */}
+        {/* Post button */}
         <TouchableOpacity 
           style={[styles.postButton, { backgroundColor: THEME_COLOR }]} 
           onPress={handlePost}
