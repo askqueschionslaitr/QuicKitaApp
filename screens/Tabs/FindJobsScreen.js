@@ -10,7 +10,7 @@ export default function FindJobsScreen() {
   const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
 
-  // ✅ LOGIC: Filter jobs based on search query
+  // Filter jobs based on search query
   const filteredJobs = jobs.filter(job => {
     const query = searchQuery.toLowerCase();
     return (
@@ -32,7 +32,7 @@ export default function FindJobsScreen() {
           style={styles.searchInput}
           placeholder="Search by keywords or category..."
           value={searchQuery}
-          onChangeText={setSearchQuery} // ✅ Real-time filtering
+          onChangeText={setSearchQuery} // Real-time filtering
         />
       </View>
 

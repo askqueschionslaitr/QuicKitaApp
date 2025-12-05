@@ -50,7 +50,7 @@ export default function JobDetailsScreen({ route, navigation }) {
           <Text style={styles.payBadge}>{job.pay}</Text>
         </View>
 
-        {/* --- JOB INFO SECTIONS --- */}
+        {/* Job info section */}
         <View style={styles.section}>
           <Text style={styles.sectionHeader}>Details</Text>
           <Text style={styles.detailText}>
@@ -71,7 +71,7 @@ export default function JobDetailsScreen({ route, navigation }) {
           </Text>
         </View>
 
-        {/* --- EMPLOYER VIEW: APPLICANTS LIST --- */}
+        {/* Employers View: Applicants list */}
         {userRole === 'Employer' && (
           <View style={styles.section}>
             <Text style={styles.sectionHeader}>Applicants ({jobApplicants.length})</Text>
@@ -104,7 +104,7 @@ export default function JobDetailsScreen({ route, navigation }) {
           </View>
         )}
         
-        {/* --- WORKER VIEW: EMPLOYER INFO --- */}
+        {/* Worker view: Employer Info */}
         {userRole === 'Worker' && (
           <View style={styles.section}>
             <Text style={styles.sectionHeader}>Employer Info</Text>
@@ -115,7 +115,7 @@ export default function JobDetailsScreen({ route, navigation }) {
 
       </ScrollView>
 
-      {/* --- WORKER VIEW: APPLY BUTTON FOOTER --- */}
+      {/* Worker view: Apply button footer */}
       {userRole === 'Worker' && (
         <View style={styles.footer}>
           {hasApplied ? (

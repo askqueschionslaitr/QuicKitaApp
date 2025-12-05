@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const applyToJob = (jobId, jobTitle) => {
-    // 1. Create Application Record
+    // Create Application Record
     const newApp = {
       id: Date.now().toString(),
       jobId: jobId,
@@ -61,7 +61,7 @@ export const AuthProvider = ({ children }) => {
     };
     setApplications(prev => [...prev, newApp]);
 
-    // 2. Notify Worker
+    // Notify Worker
     const workerNotif = {
       id: 'w-' + Date.now(),
       title: 'Application Sent 📤',
@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }) => {
       time: 'Just Now'
     };
 
-    // 3. Notify Employer
+    // Notify Employer
     const employerNotif = {
       id: 'e-' + Date.now(),
       title: 'New Applicant 👤',

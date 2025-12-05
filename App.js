@@ -119,7 +119,7 @@ function RootNavigator() {
   );
 }
 
-// App Entry Point with Context Provider ---
+// App Entry Point with Context Provider
 export default function App() {
   return (
     <AuthProvider>

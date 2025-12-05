@@ -74,14 +74,14 @@ export default function SignupScreen() {
         <Text style={styles.headerTitle}>Create Account</Text>
         <Text style={styles.headerSubtitle}>Join your neighborhood community.</Text>
         
-        {/* 1. SELECT ROLE */}
+        {/* SELECT ROLE */}
         <Text style={styles.sectionTitle}>1. Choose your primary role</Text>
         <View style={styles.roleContainer}>
           <RoleCard title="Worker" icon="hammer-outline" value="Worker" />
           <RoleCard title="Employer" icon="briefcase-outline" value="Employer" />
         </View>
 
-        {/* 2. VERIFICATION */}
+        {/* VERIFICATION */}
         <Text style={styles.sectionTitle}>2. Verify Residence (Barangay)</Text>
         <Text style={styles.helperText}>Upload a clear photo of your Valid ID or Barangay Clearance.</Text>
         
@@ -96,7 +96,7 @@ export default function SignupScreen() {
           )}
         </TouchableOpacity>
 
-        {/* 3. SUBMIT */}
+        {/* SUBMIT */}
         <TouchableOpacity 
           style={[
             styles.submitBtn, 
